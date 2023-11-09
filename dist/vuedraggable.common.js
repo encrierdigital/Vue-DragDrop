@@ -1322,16 +1322,6 @@ module.exports = function (bitmap, value) {
 
 /***/ }),
 
-/***/ "469f":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("6c1c");
-__webpack_require__("1654");
-module.exports = __webpack_require__("7d7b");
-
-
-/***/ }),
-
 /***/ "47ee":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1589,16 +1579,6 @@ $export($export.S + $export.F * !__webpack_require__("4ee1")(function (iter) { A
 
 /***/ }),
 
-/***/ "54a1":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("6c1c");
-__webpack_require__("1654");
-module.exports = __webpack_require__("95d5");
-
-
-/***/ }),
-
 /***/ "5537":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1612,7 +1592,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__("2d00") ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -1664,7 +1644,7 @@ $export($export.P + $export.F * (fails(function () {
 /***/ "584a":
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -1747,13 +1727,6 @@ $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library`
 module.exports = $export;
 
-
-/***/ }),
-
-/***/ "5d73":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("469f");
 
 /***/ }),
 
@@ -1942,13 +1915,6 @@ $export($export.P, 'Array', {
 
 __webpack_require__("9c6c")('includes');
 
-
-/***/ }),
-
-/***/ "67bb":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("f921");
 
 /***/ }),
 
@@ -2146,13 +2112,6 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 /***/ }),
 
-/***/ "774e":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("d2d5");
-
-/***/ }),
-
 /***/ "77f1":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2217,20 +2176,6 @@ module.exports = __webpack_require__("584a").getIteratorMethod = function (it) {
 
 /***/ }),
 
-/***/ "7d7b":
-/***/ (function(module, exports, __webpack_require__) {
-
-var anObject = __webpack_require__("e4ae");
-var get = __webpack_require__("7cd6");
-module.exports = __webpack_require__("584a").getIterator = function (it) {
-  var iterFn = get(it);
-  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
-  return anObject(iterFn.call(it));
-};
-
-
-/***/ }),
-
 /***/ "7e90":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2268,7 +2213,7 @@ module.exports = function (it, tag, stat) {
 /***/ "8378":
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -2361,23 +2306,6 @@ module.exports = Array.isArray || function isArray(arg) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("35e8");
-
-
-/***/ }),
-
-/***/ "95d5":
-/***/ (function(module, exports, __webpack_require__) {
-
-var classof = __webpack_require__("40c3");
-var ITERATOR = __webpack_require__("5168")('iterator');
-var Iterators = __webpack_require__("481b");
-module.exports = __webpack_require__("584a").isIterable = function (it) {
-  var O = Object(it);
-  return O[ITERATOR] !== undefined
-    || '@@iterator' in O
-    // eslint-disable-next-line no-prototype-builtins
-    || Iterators.hasOwnProperty(classof(O));
-};
 
 
 /***/ }),
@@ -2633,13 +2561,6 @@ __webpack_require__("214f")('replace', 2, function (defined, REPLACE, $replace, 
   }
 });
 
-
-/***/ }),
-
-/***/ "a745":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("f410");
 
 /***/ }),
 
@@ -2934,17 +2855,13 @@ module.exports = Object.keys || function keys(O) {
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a481");
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
 
-
 function getConsole() {
   if (typeof window !== "undefined") {
     return window.console;
   }
-
   return global.console;
 }
-
 var console = getConsole();
-
 function cached(fn) {
   var cache = Object.create(null);
   return function cachedFn(str) {
@@ -2952,20 +2869,17 @@ function cached(fn) {
     return hit || (cache[str] = fn(str));
   };
 }
-
 var regex = /-(\w)/g;
 var camelize = cached(function (str) {
   return str.replace(regex, function (_, c) {
     return c ? c.toUpperCase() : "";
   });
 });
-
 function removeNode(node) {
   if (node.parentElement !== null) {
     node.parentElement.removeChild(node);
   }
 }
-
 function insertNodeAt(fatherNode, node, position) {
   if (fatherNode.children.length && (position === 0 || fatherNode.children[position - 1])) {
     var refNode = position === 0 ? fatherNode.children[0] : fatherNode.children[position - 1].nextSibling;
@@ -2974,7 +2888,6 @@ function insertNodeAt(fatherNode, node, position) {
     fatherNode.append(node);
   }
 }
-
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("c8ba")))
 
@@ -3014,13 +2927,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-
-/***/ "c8bb":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("54a1");
 
 /***/ }),
 
@@ -3194,6 +3100,16 @@ module.exports = function (fn, that, length) {
 
 /***/ }),
 
+/***/ "d8d6":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("1654");
+__webpack_require__("6c1c");
+module.exports = __webpack_require__("ccb9").f('iterator');
+
+
+/***/ }),
+
 /***/ "d8e8":
 /***/ (function(module, exports) {
 
@@ -3241,7 +3157,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__("b8e3") ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -3537,8 +3453,8 @@ var es6_array_iterator = __webpack_require__("cadf");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
 var es6_object_keys = __webpack_require__("456d");
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
-var is_array = __webpack_require__("a745");
+// EXTERNAL MODULE: ./node_modules/core-js/library/fn/array/is-array.js
+var is_array = __webpack_require__("f410");
 var is_array_default = /*#__PURE__*/__webpack_require__.n(is_array);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js
@@ -3546,60 +3462,52 @@ var is_array_default = /*#__PURE__*/__webpack_require__.n(is_array);
 function _arrayWithHoles(arr) {
   if (is_array_default()(arr)) return arr;
 }
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js
-var get_iterator = __webpack_require__("5d73");
-var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js
-var is_iterable = __webpack_require__("c8bb");
-var is_iterable_default = /*#__PURE__*/__webpack_require__.n(is_iterable);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol.js
-var symbol = __webpack_require__("67bb");
+// EXTERNAL MODULE: ./node_modules/core-js/library/fn/symbol/index.js
+var symbol = __webpack_require__("f921");
 var symbol_default = /*#__PURE__*/__webpack_require__.n(symbol);
+
+// EXTERNAL MODULE: ./node_modules/core-js/library/fn/symbol/iterator.js
+var iterator = __webpack_require__("d8d6");
+var iterator_default = /*#__PURE__*/__webpack_require__.n(iterator);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js
 
 
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof symbol_default.a === "undefined" || !is_iterable_default()(Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = get_iterator_default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof symbol_default.a && r[iterator_default.a] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
     try {
-      if (!_n && _i["return"] != null) _i["return"]();
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
     } finally {
-      if (_d) throw _e;
+      try {
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
+      } finally {
+        if (o) throw n;
+      }
     }
+    return a;
   }
-
-  return _arr;
 }
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/from.js
-var from = __webpack_require__("774e");
+// EXTERNAL MODULE: ./node_modules/core-js/library/fn/array/from.js
+var from = __webpack_require__("d2d5");
 var from_default = /*#__PURE__*/__webpack_require__.n(from);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayLikeToArray.js
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 // CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/unsupportedIterableToArray.js
@@ -3642,7 +3550,7 @@ function _arrayWithoutHoles(arr) {
 
 
 function _iterableToArray(iter) {
-  if (typeof symbol_default.a !== "undefined" && is_iterable_default()(Object(iter))) return from_default()(iter);
+  if (typeof symbol_default.a !== "undefined" && iter[iterator_default.a] != null || iter["@@iterator"] != null) return from_default()(iter);
 }
 // CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js
 function _nonIterableSpread() {
@@ -3677,120 +3585,95 @@ var helper = __webpack_require__("c649");
 
 
 
-if (external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"] && !external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"].singleton) {
-  external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"].singleton = new external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"]();
-  external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_default.a.mount(external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"].singleton);
-}
-
+/*if (MultiDrag && !MultiDrag.singleton) {
+  MultiDrag.singleton = new MultiDrag();
+  Sortable.mount(MultiDrag.singleton);
+}*/
+external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_default.a.mount(new external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_["MultiDrag"]());
 function buildAttribute(object, propName, value) {
   if (value === undefined) {
     return object;
   }
-
   object = object || {};
   object[propName] = value;
   return object;
 }
-
 function computeVmIndex(vnodes, element) {
   return vnodes.map(function (elt) {
     return elt.elm;
   }).indexOf(element);
 }
-
 function _computeIndexes(slots, children, isTransition, footerOffset) {
   if (!slots) {
     return [];
   }
-
   var elmFromNodes = slots.map(function (elt) {
     return elt.elm;
   });
   var footerIndex = children.length - footerOffset;
-
   var rawIndexes = _toConsumableArray(children).map(function (elt, idx) {
     return idx >= footerIndex ? elmFromNodes.length : elmFromNodes.indexOf(elt);
   });
-
   return isTransition ? rawIndexes.filter(function (ind) {
     return ind !== -1;
   }) : rawIndexes;
 }
-
 function emit(evtName, evtData) {
   var _this = this;
-
   this.$nextTick(function () {
     return _this.$emit(evtName.toLowerCase(), evtData);
   });
 }
-
 function delegateAndEmit(evtName) {
   var _this2 = this;
-
   return function (evtData) {
     if (_this2.realList !== null) {
       _this2["onDrag" + evtName](evtData);
     }
-
     emit.call(_this2, evtName, evtData);
   };
 }
-
 function isTransitionName(name) {
   return ["transition-group", "TransitionGroup"].includes(name);
 }
-
 function vuedraggable_isTransition(slots) {
   if (!slots || slots.length !== 1) {
     return false;
   }
-
   var _slots = _slicedToArray(slots, 1),
-      componentOptions = _slots[0].componentOptions;
-
+    componentOptions = _slots[0].componentOptions;
   if (!componentOptions) {
     return false;
   }
-
   return isTransitionName(componentOptions.tag);
 }
-
 function getSlot(slot, scopedSlot, key) {
   return slot[key] || (scopedSlot[key] ? scopedSlot[key]() : undefined);
 }
-
 function computeChildrenAndOffsets(children, slot, scopedSlot) {
   var headerOffset = 0;
   var footerOffset = 0;
   var header = getSlot(slot, scopedSlot, "header");
-
   if (header) {
     headerOffset = header.length;
     children = children ? [].concat(_toConsumableArray(header), _toConsumableArray(children)) : _toConsumableArray(header);
   }
-
   var footer = getSlot(slot, scopedSlot, "footer");
-
   if (footer) {
     footerOffset = footer.length;
     children = children ? [].concat(_toConsumableArray(children), _toConsumableArray(footer)) : _toConsumableArray(footer);
   }
-
   return {
     children: children,
     headerOffset: headerOffset,
     footerOffset: footerOffset
   };
 }
-
 function getComponentAttributes($attrs, componentData) {
   var attributes = null;
-
   var update = function update(name, value) {
     attributes = buildAttribute(attributes, name, value);
   };
-
   var attrs = Object.keys($attrs).filter(function (key) {
     return key === "id" || key.startsWith("data-");
   }).reduce(function (res, key) {
@@ -3798,20 +3681,17 @@ function getComponentAttributes($attrs, componentData) {
     return res;
   }, {});
   update("attrs", attrs);
-
   if (!componentData) {
     return attributes;
   }
-
   var on = componentData.on,
-      props = componentData.props,
-      componentDataAttrs = componentData.attrs;
+    props = componentData.props,
+    componentDataAttrs = componentData.attrs;
   update("on", on);
   update("props", props);
   Object.assign(attributes.attrs, componentDataAttrs);
   return attributes;
 }
-
 var eventsListened = ["Start", "Add", "Remove", "Update", "End"];
 var eventsToEmit = ["Choose", "Unchoose", "Sort", "Filter", "Clone", "Select", "Deselect"];
 var readonlyProperties = ["Move"].concat(eventsListened, eventsToEmit).map(function (evt) {
@@ -3886,12 +3766,10 @@ var draggableComponent = {
   render: function render(h) {
     var slots = this.$slots.default;
     this.transitionMode = vuedraggable_isTransition(slots);
-
     var _computeChildrenAndOf = computeChildrenAndOffsets(slots, this.$slots, this.$scopedSlots),
-        children = _computeChildrenAndOf.children,
-        headerOffset = _computeChildrenAndOf.headerOffset,
-        footerOffset = _computeChildrenAndOf.footerOffset;
-
+      children = _computeChildrenAndOf.children,
+      headerOffset = _computeChildrenAndOf.headerOffset,
+      footerOffset = _computeChildrenAndOf.footerOffset;
     this.headerOffset = headerOffset;
     this.footerOffset = footerOffset;
     var attributes = getComponentAttributes(this.$attrs, this.componentData);
@@ -3901,28 +3779,22 @@ var draggableComponent = {
     if (this.list !== null && this.value !== null) {
       helper["b" /* console */].error("Value and list props are mutually exclusive! Please set one or another.");
     }
-
     if (this.element !== "div") {
       helper["b" /* console */].warn("Element props is deprecated please use tag props instead. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#element-props");
     }
-
     if (this.options !== undefined) {
       helper["b" /* console */].warn("Options props is deprecated, add sortable options directly as vue.draggable item, or use v-bind. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#options-props");
     }
-
     if (this.multiDrag && (this.selectedClass || "") === "") {
       helper["b" /* console */].warn("selected-class must be set when multi-drag mode. See https://github.com/SortableJS/Sortable/wiki/Dragging-Multiple-Items-in-Sortable#enable-multi-drag");
     }
   },
   mounted: function mounted() {
     var _this3 = this;
-
     this.noneFunctionalComponentMode = this.getTag().toLowerCase() !== this.$el.nodeName.toLowerCase() && !this.getIsFunctional();
-
     if (this.noneFunctionalComponentMode && this.transitionMode) {
       throw new Error("Transition-group inside component is not supported. Please alter tag value or remove transition-group. Current tag value: ".concat(this.getTag()));
     }
-
     var optionsAdded = {};
     eventsListened.forEach(function (elt) {
       optionsAdded["on" + elt] = delegateAndEmit.call(_this3, elt);
@@ -3940,16 +3812,13 @@ var draggableComponent = {
       }
     });
     !("draggable" in options) && (options.draggable = ">*");
-
     if (this.multiDrag) {
       options.multiDrag = true;
       options.selectedClass = this.selectedClass;
-
       if (this.multiDragKey) {
         options.multiDragKey = this.multiDragKey;
       }
     }
-
     this._sortable = new external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_default.a(this.rootContainer, options);
     this.computeIndexes();
   },
@@ -3992,7 +3861,6 @@ var draggableComponent = {
     updateOptions: function updateOptions(newOptionValue) {
       for (var property in newOptionValue) {
         var value = Object(helper["a" /* camelize */])(property);
-
         if (readonlyProperties.indexOf(value) === -1) {
           this._sortable.option(value, newOptionValue[property]);
         }
@@ -4002,26 +3870,22 @@ var draggableComponent = {
       if (this.noneFunctionalComponentMode) {
         return this.$children[0].$slots.default;
       }
-
       var rawNodes = this.$slots.default;
       return this.transitionMode ? rawNodes[0].child.$slots.default : rawNodes;
     },
     computeIndexes: function computeIndexes() {
       var _this4 = this;
-
       this.$nextTick(function () {
         _this4.visibleIndexes = _computeIndexes(_this4.getChildrenNodes(), _this4.rootContainer.children, _this4.transitionMode, _this4.footerOffset);
       });
     },
     getUnderlyingVm: function getUnderlyingVm(htmlElt) {
       var index = computeVmIndex(this.getChildrenNodes() || [], htmlElt);
-
       if (index === -1) {
         //Edge case during move callback: related element might be
         //an element different from collection
         return null;
       }
-
       var element = this.realList[index];
       return {
         index: index,
@@ -4036,17 +3900,14 @@ var draggableComponent = {
     },
     getUnderlyingPotencialDraggableComponent: function getUnderlyingPotencialDraggableComponent(_ref) {
       var vue = _ref.__vue__;
-
       if (!vue || !vue.$options || !isTransitionName(vue.$options._componentTag)) {
         if (!("realList" in vue) && vue.$children.length === 1 && "realList" in vue.$children[0]) return vue.$children[0];
         return vue;
       }
-
       return vue.$parent;
     },
     emitChanges: function emitChanges(evt) {
       var _this5 = this;
-
       this.$nextTick(function () {
         _this5.$emit("change", evt);
       });
@@ -4056,53 +3917,43 @@ var draggableComponent = {
         onList(this.list);
         return;
       }
-
       var newList = _toConsumableArray(this.value);
-
       onList(newList);
       this.$emit("input", newList);
     },
     spliceList: function spliceList() {
       var _arguments = arguments;
-
       var spliceList = function spliceList(list) {
         return list.splice.apply(list, _toConsumableArray(_arguments));
       };
-
       this.alterList(spliceList);
     },
     updatePosition: function updatePosition(oldIndex, newIndex) {
       var updatePosition = function updatePosition(list) {
         return list.splice(newIndex, 0, list.splice(oldIndex, 1)[0]);
       };
-
       this.alterList(updatePosition);
     },
     getRelatedContextFromMoveEvent: function getRelatedContextFromMoveEvent(_ref2) {
       var to = _ref2.to,
-          related = _ref2.related;
+        related = _ref2.related;
       var component = this.getUnderlyingPotencialDraggableComponent(to);
-
       if (!component) {
         return {
           component: component
         };
       }
-
       var list = component.realList;
       var context = {
         list: list,
         component: component
       };
-
       if (to !== related && list && component.getUnderlyingVm) {
         var destination = component.getUnderlyingVm(related);
-
         if (destination) {
           return Object.assign(destination, context);
         }
       }
-
       return context;
     },
     getVmIndex: function getVmIndex(domIndex) {
@@ -4117,7 +3968,6 @@ var draggableComponent = {
       if (!this.noTransitionOnDrag || !this.transitionMode) {
         return;
       }
-
       var nodes = this.getChildrenNodes();
       nodes[index].data = null;
       var transitionContainer = this.getComponent();
@@ -4145,11 +3995,9 @@ var draggableComponent = {
     },
     onDragAdd: function onDragAdd(evt) {
       var element = evt.item._underlying_vm_;
-
       if (element === undefined) {
         return;
       }
-
       if (Array.isArray(element)) {
         this.doDragAddList(evt, element);
       } else {
@@ -4173,7 +4021,6 @@ var draggableComponent = {
       if (elements.length === 0) {
         return;
       }
-
       evt.items.forEach(helper["d" /* removeNode */]);
       var newIndexFrom = this.getVmIndex(evt.newIndex);
       this.alterList(function (list) {
@@ -4200,12 +4047,10 @@ var draggableComponent = {
     },
     doDragRemove: function doDragRemove(evt) {
       Object(helper["c" /* insertNodeAt */])(this.rootContainer, evt.item, evt.oldIndex);
-
       if (evt.pullMode === "clone") {
         Object(helper["d" /* removeNode */])(evt.clone);
         return;
       }
-
       var oldIndex = this.context.index;
       this.spliceList(oldIndex, 1);
       this.resetTransitionData(oldIndex);
@@ -4219,29 +4064,23 @@ var draggableComponent = {
     },
     doDragRemoveList: function doDragRemoveList(evt) {
       var _this6 = this;
-
       evt.items.forEach(function (item, index) {
         Object(helper["c" /* insertNodeAt */])(_this6.rootContainer, item, evt.oldIndicies[index].index);
       });
-
       if (evt.pullMode === "clone") {
         if (evt.clones) {
           evt.clones.forEach(helper["d" /* removeNode */]);
         } else {
           Object(helper["d" /* removeNode */])(evt.clone);
         }
-
         return;
       }
-
       var reversed = this.context.sort(function (a, b) {
         return b.index - a.index;
       });
       var removed = reversed.map(function (item) {
         var oldIndex = item.index;
-
         _this6.resetTransitionData(oldIndex);
-
         return {
           element: item.element,
           oldIndex: oldIndex
@@ -4281,13 +4120,12 @@ var draggableComponent = {
     },
     doDragUpdateList: function doDragUpdateList(evt) {
       var _this7 = this;
-
       evt.items.forEach(function (item, index) {
         var c = _this7.context[index];
         Object(helper["d" /* removeNode */])(item);
         Object(helper["c" /* insertNodeAt */])(evt.from, item, c.index);
-      }); // eslint-disable-next-line prettier/prettier
-
+      });
+      // eslint-disable-next-line prettier/prettier
       var newIndexFrom = this.getVmIndex(evt.newIndex) - evt.items.indexOf(evt.item);
       var moved = this.context.map(function (item, index) {
         var oldIndex = item.index;
@@ -4299,15 +4137,15 @@ var draggableComponent = {
         };
       });
       this.alterList(function (list) {
-        var target = moved.slice(); // remove moved elements from old index
-
+        var target = moved.slice();
+        // remove moved elements from old index
         target.sort(function (a, b) {
           return b.oldIndex - a.oldIndex;
         });
         target.forEach(function (e) {
           return list.splice(e.oldIndex, 1);
-        }); // add moved elements to new index
-
+        });
+        // add moved elements to new index
         target.sort(function (a, b) {
           return a.newIndex - b.newIndex;
         });
@@ -4326,11 +4164,9 @@ var draggableComponent = {
       if (!relatedContext.element) {
         return 0;
       }
-
       var domChildren = _toConsumableArray(evt.to.children).filter(function (el) {
         return el.style["display"] !== "none";
       });
-
       var currentDOMIndex = domChildren.indexOf(evt.related);
       var currentIndex = relatedContext.component.getVmIndex(currentDOMIndex);
       var draggedInList = domChildren.indexOf(draggingElement) !== -1;
@@ -4338,11 +4174,9 @@ var draggableComponent = {
     },
     onDragMove: function onDragMove(evt, originalEvent) {
       var onMove = this.move;
-
       if (!onMove || !this.realList) {
         return true;
       }
-
       var relatedContext = this.getRelatedContextFromMoveEvent(evt);
       var draggedContext = this.context;
       var futureIndex = this.computeFutureIndex(relatedContext, evt);
@@ -4362,11 +4196,9 @@ var draggableComponent = {
     }
   }
 };
-
 if (typeof window !== "undefined" && "Vue" in window) {
   window.Vue.component("draggable", draggableComponent);
 }
-
 /* harmony default export */ var vuedraggable = (draggableComponent);
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 

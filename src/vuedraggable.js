@@ -1,10 +1,11 @@
 import Sortable, { MultiDrag } from "sortablejs";
 import { insertNodeAt, camelize, console, removeNode } from "./util/helper";
 
-if (MultiDrag && !MultiDrag.singleton) {
+/*if (MultiDrag && !MultiDrag.singleton) {
   MultiDrag.singleton = new MultiDrag();
   Sortable.mount(MultiDrag.singleton);
-}
+}*/
+Sortable.mount(new MultiDrag());
 
 function buildAttribute(object, propName, value) {
   if (value === undefined) {
