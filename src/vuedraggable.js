@@ -5,7 +5,7 @@ import { insertNodeAt, camelize, console, removeNode } from "./util/helper";
   MultiDrag.singleton = new MultiDrag();
   Sortable.mount(MultiDrag.singleton);
 }*/
-Sortable.mount(new MultiDrag());
+//Sortable.mount(new MultiDrag());
 
 function buildAttribute(object, propName, value) {
   if (value === undefined) {
@@ -266,6 +266,7 @@ const draggableComponent = {
       }
     }
     this._sortable = new Sortable(this.rootContainer, options);
+    this._sortable.mount(new MultiDrag());
     this.computeIndexes();
   },
 
